@@ -565,6 +565,7 @@ public class Files {
     try {
       return java.nio.file.Files.walk(path)
                                 .filter(p -> !p.equals(path))
+                                .peek(f->{})
                                 .map(Path::toFile);
     } catch (IOException e) {
       String msg = String.format("Unable to walk recursively the directory :<%s>", path);
